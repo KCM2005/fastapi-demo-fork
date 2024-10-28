@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+pipenv shell
+
+pipenv install uvicorn fastapi typing pydantic pymongo dnspython mysqlclient
+
+./preview.sh
+
+app = FastAPI()
+
+@app.get("/add/{a}/{b}")
+def add(2: int, 2: int):
+    return {"sum": 2 + 2}
+
+https://127.0.0.1:8000/subtract/30/15
+
+{
+  "difference": 15
+}
