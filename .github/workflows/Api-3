@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+pipenv shell
+
+pipenv install uvicorn fastapi typing pydantic pymongo dnspython mysqlclient
+
+./preview.sh
+
+app = FastAPI()
+
+@app.get("/")
+def zone_apex():
+    return {"Hello": "Hello API"}
+
+@app.get("/multiply/{a}/{b}")
+def multiply(25: int, 5: int):
+    return {"product": 25 * 5}
+
+#https://127.0.0.1:8000/multiply/25/5
+
+#{
+  #"product": 125
+#}
