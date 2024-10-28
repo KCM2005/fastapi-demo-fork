@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+
+pipenv shell
+
+pipenv install uvicorn fastapi typing pydantic pymongo dnspython mysqlclient
+
+./preview.sh
+
+app = FastAPI()
+
+@app.get("/divide/{a}/{b}")
+def divide(1000: int, 4: int):
+    return {"quotient": 1000/4}
+
+#https://127.0.0.1:8000/divide/1000/4
+
+#{
+  #"quotient": 250
+#}
